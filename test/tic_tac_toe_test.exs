@@ -43,4 +43,16 @@ defmodule TicTacToeTest do
        |   |   
     """
   end
+
+  test "move empty list and 1" do
+    assert TicTacToe.move([], 1) == {:ok, [1]}
+  end
+
+  test "move with populated list" do
+    assert TicTacToe.move([1, 3, 5], 2) == {:ok, [1, 3, 5, 2]}
+  end
+
+  test "move with already existing move" do
+    assert TicTacToe.move([1, 3, 5], 1) == {:error, [1, 3, 5], "Already played"}
+  end
 end

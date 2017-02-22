@@ -1,4 +1,24 @@
 defmodule TicTacToe do
+  def all_wins() do
+    [[1,2,3],
+      [4,5,6],
+      [7,8,9],
+      [1,4,7],
+      [2,5,8],
+      [3,6,9],
+      [1,5,9],
+      [3,5,7]]
+  end
+
+  def move(move_list, move) when is_integer(move) do
+    cond do
+      Enum.member?(move_list, move) ->
+        {:error, move_list, "Already played"}
+      :else ->
+        {:ok, move_list ++ [move]}
+    end
+  end
+
   def print_board([]) do
     ~S"""
        |   |   
