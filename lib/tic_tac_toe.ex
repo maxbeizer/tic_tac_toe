@@ -1,5 +1,15 @@
 defmodule TicTacToe do
-  def render_board(moves) do
+  def print_board([]) do
+    ~S"""
+       |   |   
+    ---|---|---
+       |   |   
+    ---|---|---
+       |   |   
+    """
+  end
+
+  def map_moves_to_board(moves) do
     moves
     |> convert_moves_to_xo_tuples
     |> turn_tuples_into_lists
