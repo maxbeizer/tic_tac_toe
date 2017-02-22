@@ -9,6 +9,17 @@ defmodule TicTacToe do
     """
   end
 
+  def print_board(board) do
+    board
+    |> Enum.map(fn(row) ->
+      Enum.map(row, fn(x) -> " #{x || " "} " end)
+      |> Enum.join("|")
+    end)
+    |> Enum.join("\n---|---|---\n")
+    |> Kernel.<>("\n")
+
+  end
+
   def map_moves_to_board(moves) do
     moves
     |> convert_moves_to_xo_tuples
